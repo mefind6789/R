@@ -1,0 +1,87 @@
+8)Search Techniques
+
+#include <iostream>
+using namespace std;
+class search
+{
+public:
+    int arr[25], n, key, i, ch;
+    void get_elements()
+    {
+        cout << "\n\tSEARCHING TECHNIQUES:";
+        cout << "\n Enter the size of an array:";
+        cin >> n;
+        cout << "\n Enter " << n << " elements:\n";
+        for (i = 0; i < n; i++)
+        {
+            cin >> arr[i];
+        }
+        cout << "\n Enter the element to search:";
+        cin >> key;
+        cout << "\n Select the searching techniques:";
+        cout << "\n 1. Linear Search ";
+        cout << "\n 2. Binary Search ";
+        cin >> ch;
+        switch (ch)
+        {
+        case 1:
+        {
+            linear_search();
+            break;
+        }
+        case 2:
+        {
+            binary_search();
+            break;
+        }
+        default:
+            cout << "Invalid Choice";
+         }
+void linear_search()
+{
+    for (i = 0; i < n; i++)
+    {
+        if (arr[i] == key)
+        {
+            cout << "\n The element found at index " << i;
+            break;
+        }
+    }
+    else // 
+    if (i == n)
+    {
+        cout << "\n The element not found ";
+    }
+}
+void binary_search()
+{
+    int low = 0, high = n - 1;
+    while (low <= high)
+    {
+        int mid = low + (high - low) / 2;
+        if (arr[mid] == key)
+        {
+            cout << "\n The element found at index " << mid;
+            key = -1; 
+            break;
+        }
+        else if (arr[mid] < key)
+        {
+            low = mid + 1;
+        }
+        else
+        {
+            high = mid - 1;
+        }
+    }
+    if (key == -1)
+    cout << "\n The element not found ";
+}
+} // End of void binary_search()
+} // End of class search
+int main()
+{
+    search s;
+    s.get_elements();
+    return 0;
+}
