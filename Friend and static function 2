@@ -1,0 +1,46 @@
+4) Friend and Statuc Function 
+
+
+
+#include<iostream>
+using namespace std;
+
+class Distance {
+private:
+    int meter;
+    static int staticMeter;  
+    friend int add(Distance);
+
+public:
+    Distance() {
+        meter = 0;
+    }
+
+    
+    static void setStaticMeter(int val) {
+        staticMeter = val;
+    }
+
+    static int getStaticMeter() {
+        return staticMeter;
+    }
+};
+
+//int Distance::staticMeter = 0;
+
+// 
+int add(Distance d) {
+    d.meter += 5;
+    return d.meter + Distance::staticMeter;
+}
+
+int main() {
+    Distance d;
+
+     Distance::setStaticMeter(10);
+     cout << "Total distance = " << add(d) << endl;
+    
+    cout << "Static meter value = " << Distance::getStaticMeter() << endl;
+
+    return 0;
+}
