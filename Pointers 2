@@ -1,0 +1,41 @@
+2) pointers 
+
+
+
+
+#include <iostream>
+using namespace std;
+
+class swap
+{
+    public:
+        void swapnum(int *a, int *b)
+        {
+            int temp = *a;
+            *a = *b;
+            *b = temp;
+        }
+};
+
+int main()
+{
+    int num1, num2;
+    cout << "\n\t\t SWAPPING USING POINTERS:";
+    cout << "\n Enter the first Number : ";
+    cin >> num1;
+    cout << "\n Enter the Second Number : ";
+    cin >> num2;
+
+    cout << "\n Before Swapping:";
+    cout << "\n Number 1 = " << num1;
+    cout << "\n Number 2 = " << num2;
+
+    swap obj;
+    obj.swapnum(&num1, &num2);
+
+    cout << "\n After Swapping:";
+    cout << "\n Number 1 = " << num1;
+    cout << "\n Number 2 = " << num2;
+
+    return 0;
+}
