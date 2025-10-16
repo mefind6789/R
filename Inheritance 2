@@ -1,0 +1,59 @@
+Inheritance 
+
+
+#include <iostream>
+using namespace std;
+
+class stock  
+{  
+    public:  
+        int ino, qty, price;  
+        char sname[25];  
+        void getdata()  
+        {  
+        }  
+        void bill()  
+        {  
+        }  
+};
+
+class stock_details : 
+{
+public stock  
+{  
+    public:  
+        int total;  
+        void getdata()  
+        {  
+            cout << "\nEnter the item number : ";  
+            cin >> ino;  
+            cout << "\nEnter the item name : ";  
+            cin >> sname;  
+            cout << "\nEnter the number of items : ";  
+            cin >> qty;  
+            cout << "\nEnter the amount : ";  
+            cin >> price;  
+        }  
+         void bill()
+{
+    total = qty * price;
+}
+
+void display()
+{
+    cout << "\n\t\t STOCK MANAGEMENT";
+    cout << "\n Item Number : " << ino;
+    cout << "\n Item name : " << sname;
+    cout << "\n Quantity : " << qty;
+    cout << "\n Price : " << price;
+    cout << "\n Total : " << total;
+}
+
+int main()
+{
+    stock_details s;
+    s.getdata();
+    s.bill();
+    s.display();
+    return 0;
+}
