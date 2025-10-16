@@ -1,0 +1,89 @@
+6) Stack Operation 
+
+#include <iostream>
+using namespace std;
+class stack
+{
+    public:
+    int top, s[50], n;
+    void init()
+    {
+        top = 0;
+        cout << "\nInit STACK OPERATIONS";
+        cout << "\nEnter the size of the stack:";
+        cin >> n;
+    }
+    void push()
+    {
+        if (top == n)
+        {
+            cout << "\nStack is overflow";
+        }
+        else
+        {
+            top = top + 1;
+            cout << "\nEnter the element:";
+            cin >> s[top];
+        }
+    }
+    void pop()
+    {
+        if (top == 0)
+            cout << "\nThe stack is overflow";
+        }
+        else
+        {
+            cout << "\nThe deleted element is: " << s[top];
+            top = top - 1; 
+        }
+    }
+
+    void display()
+    {
+        for (int i = 1; i <= top; i++)
+        {
+            cout << "\nItem " << i << ": " << s[i];
+        }
+    }
+};
+
+int main()
+{
+    stack s;
+    int ch;
+    char ans = 'y';
+    s.init();
+    while (ans == 'y')
+    {
+        cout << "\n1 push";
+        cout << "\n2 pop";
+        cout << "\n3 Display";
+        cout << "\nEnter your choice:";
+        cin >> ch;
+        switch (ch)
+        {
+                case 1:
+        {
+            s.push();
+            break;
+        }
+        case 2:
+        {
+            s.pop();
+            break;
+        }
+        case 3:
+        {
+            s.display();
+            break;
+        }
+        default:
+        {
+            cout << "Enter the valid choice";
+        }
+        } // end of switch
+
+        cout << "\nDo you want to continue (y/n)";
+        cin >> ans;
+    } 
+}
